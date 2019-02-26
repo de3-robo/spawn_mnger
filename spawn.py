@@ -10,7 +10,7 @@ rospy.init_node('spawn_brick',log_level=rospy.INFO)
 quaternion = tf.transformations.quaternion_from_euler(0,0,1.570796)
 
 initial_pose = Pose()
-initial_pose.position.x = 0.5
+initial_pose.position.x = 0.48 #tune this ..
 initial_pose.position.y = 0.5
 initial_pose.position.z = 0.2
 initial_pose.orientation.x = quaternion[0]
