@@ -10,8 +10,8 @@ rospy.init_node('spawn_brick',log_level=rospy.INFO)
 quaternion = tf.transformations.quaternion_from_euler(0,0,1.570796)
 
 initial_pose = Pose()
-initial_pose.position.x = 0.48 #tune this ..
-initial_pose.position.y = 0.5
+initial_pose.position.x = 0.5 #tune this ..
+initial_pose.position.y = 0.5 - 0.04
 initial_pose.position.z = 0.2
 initial_pose.orientation.x = quaternion[0]
 initial_pose.orientation.y = quaternion[1]
@@ -20,6 +20,8 @@ initial_pose.orientation.w = quaternion[3]
 
 #Hopefully should work on everyones computer if not directly change this
 file = os.path.expanduser('~/.gazebo/models/Brick/model-1_4.sdf')
+file = os.path.expanduser('~/.gazebo/models/new_brick/model.sdf')
+
 #file = "ENTER ABS PATH TO THE model-1_4 file on your computer"
 f = open(file, "r")
 sdff = f.read()
@@ -29,7 +31,7 @@ spawn_model_prox = rospy.ServiceProxy('gazebo/spawn_sdf_model', SpawnModel)
 
 
 def gen_brick_handler(req):
-    i = random.randint(1,500)
+    i = random.randint(1,5000)
     spawn_model_prox("brick_"+str(i), sdff, "brick_"+str(i), initial_pose, "world")
     resp = TriggerResponse()
     return resp
