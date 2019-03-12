@@ -19,8 +19,8 @@ initial_pose.orientation.z = quaternion[2]
 initial_pose.orientation.w = quaternion[3]
 
 #Hopefully should work on everyones computer if not directly change this
-# file = os.path.expanduser('~/.gazebo/models/Brick/model-1_4.sdf')
-file = os.path.expanduser('~/.gazebo/models/new_brick/model.sdf')
+file = os.path.expanduser('~/.gazebo/models/Brick/model-1_4.sdf')
+# file = os.path.expanduser('~/.gazebo/models/new_brick/model.sdf')
 
 #file = "ENTER ABS PATH TO THE model-1_4 file on your computer"
 f = open(file, "r")
